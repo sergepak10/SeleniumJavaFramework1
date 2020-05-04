@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="PositiveLoginTestSuite" parallel="tests" thread-count="2">
+  <test name="PositiveLoginTest_Chrome">
+  <parameter name="browserName" value="chrome"></parameter>
+    <classes>
+      <class name="com.herokuapp.theinternet.loginpagetest.PositiveLoginTest"/>
+    </classes>
+  </test>
+  
+    <test name="PositiveLoginTest_firefox">
+  <parameter name="browserName" value="firefox"></parameter>
+    <classes>
+      <class name="com.herokuapp.theinternet.loginpagetest.PositiveLoginTest"/>
+    </classes>
+  </test>
+</suite>
