@@ -14,7 +14,7 @@ public class LoginPage extends BasePageObject{
 	public LoginPage(WebDriver driver, Logger log) {
 		super(driver, log);
 	}
-	//**Login into app */
+	//**Login into application */
 	public SecureAreaPage Login(String username, String password) {
 		log.info("Executing Login with username [" + username + "] and password [" + password + "]" );
 		type(username, usernameLocator);
