@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 public class BaseTest {
@@ -16,7 +17,7 @@ public class BaseTest {
 	
 	@Parameters({"browserName"})
 	@BeforeTest
-	public void setUP(String browserName, ITestContext ctx) {
+	public void setUP(@Optional("chrome") String browserName, ITestContext ctx) {
 		String testName = ctx.getCurrentXmlTest().getName();
 		log = LogManager.getLogger(testName);
 		
