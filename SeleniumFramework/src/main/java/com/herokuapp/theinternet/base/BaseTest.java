@@ -33,7 +33,7 @@ public class BaseTest {
 		// close browser
 		driver.close();
 
-		System.out.println("Test completed successfully");
+		System.out.println("Test is completed");
 
 	}
 }

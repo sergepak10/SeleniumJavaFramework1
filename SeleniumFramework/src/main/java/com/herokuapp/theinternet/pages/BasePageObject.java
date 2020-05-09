@@ -1,6 +1,9 @@
 package com.herokuapp.theinternet.pages;
 
+import java.util.List;
+
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
@@ -24,9 +27,14 @@ public class BasePageObject {
 		driver.get(url);
 	}
 	
-	/**Find element with a given locator*/
+	/**Find element for a given locator*/
 	protected WebElement find(By locator) {
 		return driver.findElement(locator);
+	}
+	
+	/**Find all elements for a given locator*/
+	protected List<WebElement> findAll(By locator) {
+		return driver.findElements(locator);
 	}
 	
 	/**click on element with a given locator when its visible*/
@@ -70,6 +78,13 @@ public class BasePageObject {
 			}
 			attempts++;
 		}
+	}
+	
+	protected Alert switchToAlert() {
+		WebDriverWait wait = new WebDriverWait(driver, 5);
+		wait.until(ExpectedConditions.alertIsPresent());
+		return driver.switchTo().alert();
+		
 	}
 	
 	

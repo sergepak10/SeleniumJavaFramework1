@@ -13,11 +13,9 @@ public class PositiveLoginTest extends BaseTest {
 
 	@Test
 	public void logInTest() {
-		// open a main page
 		log.info("Starting LogIn test");
 		
-		
-		//Open main page
+		//Open a main page
 		WelcomePageObject welcomePage = new WelcomePageObject(driver, log);
 		welcomePage.openPage();
 		
@@ -27,13 +25,13 @@ public class PositiveLoginTest extends BaseTest {
 		//Execute Login
 		SecureAreaPage secureAreaPage = loginPage.Login("tomsmith", "SuperSecretPassword!");
 		
-		//New page url is as expected
+		//New page displays correct url
 		Assert.assertEquals(secureAreaPage.getCurrentUrl(), secureAreaPage.getPageUrl());
 		 
-		// logout button is visible
+		//Logout button is visible
 		Assert.assertTrue(secureAreaPage.isLogOutButtonVisible(), "Logout button is not visible");
 		
-		// Successful login message
+		//Successful login message
 		String expectedSuccessMessage = "You logged into a secure area!";
 		String actualSuccessMessage = secureAreaPage.getSuccessMessageText();
 		Assert.assertTrue(actualSuccessMessage.contains(expectedSuccessMessage), "actualSuccessMessage does not contain expectedSuccessMessage" + 
