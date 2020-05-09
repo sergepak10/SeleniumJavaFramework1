@@ -43,7 +43,7 @@ public class BasePageObject {
 		find(locator).click();
 	}
 	
-	/** Type a given text into element with a given locator */
+	/** Type a given text into element for a given locator */
 	protected void type(String text, By locator) {
 		waitForVisibilityOf(locator,5);
 		find(locator).sendKeys(text);
@@ -79,14 +79,12 @@ public class BasePageObject {
 			attempts++;
 		}
 	}
-	
+	/**Wait for alert to appear and then switch to it */
 	protected Alert switchToAlert() {
 		WebDriverWait wait = new WebDriverWait(driver, 5);
 		wait.until(ExpectedConditions.alertIsPresent());
 		return driver.switchTo().alert();
 		
 	}
-	
-	
 	
 }

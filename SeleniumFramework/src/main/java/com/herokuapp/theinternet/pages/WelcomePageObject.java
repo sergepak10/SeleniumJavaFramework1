@@ -53,11 +53,4 @@ public class WelcomePageObject extends BasePageObject{
 		return new JavaScriptAlertsPage(driver,log);
 		
 	}
-	
-
-	
-	
-	
-	
-	
 }

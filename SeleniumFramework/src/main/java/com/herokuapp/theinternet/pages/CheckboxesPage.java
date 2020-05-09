@@ -15,7 +15,7 @@ public class CheckboxesPage extends BasePageObject{
 		super(driver, log);
 	}
 	
-	/**Get a list of all checkboxes and select each unchecked box */
+	/**Get a list of all check boxes and select each unchecked box */
 	public void selectAllCheckboxes() {
 		log.info("selecting all unchecked boxes");
 		List<WebElement> checkboxes = findAll(checkbox);
