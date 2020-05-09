@@ -18,7 +18,7 @@ public class WelcomePageObject extends BasePageObject{
 		super(driver, log);
 	}
 	
-	/**Open WelcomePage with it's url */
+	/**Open WelcomePage with the main page URL */
 	public void openPage(){
 		log.info("Opening page: " + pageUrl);
 		openUrl(pageUrl);

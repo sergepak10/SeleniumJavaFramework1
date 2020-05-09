@@ -57,6 +57,13 @@ public class JavaScriptAlertsPage extends BasePageObject{
 		alert.dismiss();
 	}
 	
+	/**switch to Alert and type text */
+	public void typeTextIntoAlert(String text) {
+		log.info("switching to Alert and typing text");
+		Alert alert = switchToAlert();
+		alert.sendKeys(text);
+	}
+	
 	/**Get Result message */
 	public String getResultMessage() {
 		String result = find(resultTextLocator).getText();

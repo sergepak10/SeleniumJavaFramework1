@@ -12,6 +12,7 @@ public class JavaScriptAlertsTest extends BaseTest {
 	@Test
 	public void jsAlertTest() {
 		//Open main page
+		System.out.println("********************************************");
 		WelcomePageObject welcomePage = new WelcomePageObject(driver, log);
 		welcomePage.openPage();
 		
@@ -35,7 +36,7 @@ public class JavaScriptAlertsTest extends BaseTest {
 		Assert.assertTrue(alertText.equals("I am a JS Alert"), "Alert text is not correct. \nExpected 'I am a JS Alert', but received: " 
 				+ alertText);
 		//2 - Result message as expected
-		Assert.assertTrue(resultMessage.equals("You successfuly clicked an alert"), "Alert message is not correct. \nExpected 'You successfuly clicked an alert',"
+		Assert.assertTrue(resultMessage.equals("You successfuly clicked an alert"), "Result message is not correct. \nExpected 'You successfuly clicked an alert',"
 				+ " but received: " + resultMessage);
 		
 	}
@@ -43,6 +44,7 @@ public class JavaScriptAlertsTest extends BaseTest {
 	@Test
 	public void jsConfirmTest() {
 		//Open main page
+		System.out.println("********************************************");
 		WelcomePageObject welcomePage = new WelcomePageObject(driver, log);
 		welcomePage.openPage();
 		
@@ -76,12 +78,47 @@ public class JavaScriptAlertsTest extends BaseTest {
 				+ confirmText);
 		
 		//2 - Result OK message as expected
-		Assert.assertTrue(resultMessage.equals("You clicked: Ok"), "Alert message is not correct. \nExpected 'You clicked: Ok',"
+		Assert.assertTrue(resultMessage.equals("You clicked: Ok"), "Result message is not correct. \nExpected 'You clicked: Ok',"
 				+ " but received: " + resultMessage);
 		
 		//3 - Result Cancel message as expected
-		Assert.assertTrue(resultCancelMessage.equals("You clicked: Cancel"), "Alert message is not correct. \nExpected 'You clicked: Cancel',"
+		Assert.assertTrue(resultCancelMessage.equals("You clicked: Cancel"), "Result message is not correct. \nExpected 'You clicked: Cancel',"
 				+ " but received: " + resultCancelMessage);
+		
+	}
+	@Test
+	public void jsPromptTest() {
+		//Open main page
+		System.out.println("********************************************");
+		WelcomePageObject welcomePage = new WelcomePageObject(driver, log);
+		welcomePage.openPage();
+		
+		//Click on JavaScriptAlerts link
+		JavaScriptAlertsPage alertsPage = welcomePage.clickJavaScriptAlertsLink();
+		
+		//Click on Click for JS Prompt button
+		alertsPage.clickForJSPrompt();
+		
+		//Get JS prompt text
+		String alertText = alertsPage.getAlertText();
+		
+		//Type text into alert
+		alertsPage.typeTextIntoAlert("alert - js prompt text!");
+		
+		//Click OK
+		alertsPage.acceptAlert();
+		
+		//Get Result message
+		String resultPromptMessage = alertsPage.getResultMessage();
+		
+		//Verifications
+		//1 - Alert text as expected
+		Assert.assertTrue(alertText.equals("I am a JS prompt"), "Alert text is not correct. \nExpected 'I am a JS prompt', but received: " 
+				+ alertText);
+		
+		//2 - Result message as expected
+		Assert.assertTrue(resultPromptMessage.equals("You entered: alert - js prompt text!"), "Result message is not correct. \nExpected 'alert - js prompt text!',"
+				+ "but received: " + resultPromptMessage);
 		
 	}
 }

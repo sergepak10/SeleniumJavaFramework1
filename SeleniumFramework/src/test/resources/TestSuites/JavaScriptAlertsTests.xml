@@ -7,7 +7,8 @@
 			<class
 				name="com.herokuapp.theinternet.alertstests.JavaScriptAlertsTest">
 				<methods>
-					<include name="jsConfirmTest"></include>
+					<include name="jsAlertTest"></include>
+					<include name="jsPromptTest"></include>
 				</methods>
 			</class>
 		</classes>
